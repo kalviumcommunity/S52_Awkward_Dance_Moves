@@ -1,6 +1,7 @@
 ### Project Overview
 
 # Awkward Dance Moves Showcase
+### By MUGILAN
 
 **Welcome to the Awkward Dance Moves Showcase! 🕺💃**
 
@@ -25,29 +26,16 @@ Whether you're a seasoned dancer or a self-proclaimed dance floor disaster, our 
 
 Ready to bust a move? Let the awkwardness begin! 🎉
 
-### Table of Contents
-
-#### Explanation:
-Include a table of contents to help users navigate through your README easily. Each section in your README should have a corresponding link in the table of contents.
-
-```markdown
 ## Table of Contents
 
 - [Project Overview](#project-overview)
-  - [What is the Project Based On?](#what-is-the-project-based-on)
+    - [What is the Project Based On?](#what-is-the-project-based-on)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
 - [Contributing](#contributing)
-```
 
 ### Installation
-
-#### Explanation:
-Provide clear instructions on how users can install and set up your project locally.
-
-```markdown
-## Installation
 
 1. **Clone the Repository:**
 
@@ -83,15 +71,8 @@ Provide clear instructions on how users can install and set up your project loca
     ```
 
     The application will be available at `http://localhost:3000` by default.
-```
 
 ### Usage
-
-#### Explanation:
-Guide users on how to use your project. This could include instructions on registration, navigation, and interaction with the main features.
-
-```markdown
-## Usage
 
 1. **User Registration:**
    - Visit the website and register for an account.
@@ -104,33 +85,14 @@ Guide users on how to use your project. This could include instructions on regis
 
 4. **Download Gifs:**
    - Each dance move post has a download option for users to download the gif.
-```
 
 ### Features
-
-#### Explanation:
-Highlight the key features of your project.
-
-```markdown
-## Features
 
 - User Registration
 - Random Display of Awkward Dance Gifs
 - Like and Comment on Posts
 - Gif Download Option
-```
 
 ### Contributing
 
-#### Explanation:
-Encourage others to contribute to your project and provide guidelines for doing so.
-
-```markdown
-## Contributing
-
 Contributions are welcome! If you have suggestions, improvements, or additional features to propose, feel free to open an issue or submit a pull request.
-```
-
-
-
-This structure provides a clear and organized way for users to understand your project, install it, and start using its features. Feel free to customize and add more details based on your project's specific requirements.
