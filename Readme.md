@@ -1,9 +1,5 @@
 ### Project Overview
 
-Certainly! To create an introduction for your project, you'll want to provide a brief and engaging overview that captures the essence of your "Most Awkward Dance Moves" website. Here's a sample introduction:
-
----
-
 # Awkward Dance Moves Showcase
 
 **Welcome to the Awkward Dance Moves Showcase! 🕺💃**
