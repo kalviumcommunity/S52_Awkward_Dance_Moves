@@ -31,7 +31,7 @@ Ready to bust a move? Let the awkwardness begin! 🎉
 - [Project Overview](#project-overview)
     - [What is the Project Based On?](#what-is-the-project-based-on)
 - [Installation](#installation)
-- [Usage](#usage)
+- [Usage](#usage)̀
 - [Features](#features)
 - [Contributing](#contributing)
 

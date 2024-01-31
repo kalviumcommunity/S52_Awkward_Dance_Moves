@@ -1,0 +1,11 @@
+{
+  "name": "s52_awkward_dance_moves",
+  "version": "1.0.0",
+  "description": "# Awkward Dance Moves Showcase ### By MUGILAN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
