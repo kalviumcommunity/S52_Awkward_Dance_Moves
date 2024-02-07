@@ -6,11 +6,18 @@
 
 **Welcome to the Awkward Dance Moves Showcase! 🕺💃**
 
-**Derploy Links:**
+
+**Deploy link:**
+1. https://funkyfumbles.pages.dev/
+2. https://funkyfumbles.netlify.app/
+
+**Project Overview:**
+
 
 
 
 2. **Project Overview:**
+
 
 Get ready to laugh, groove, and embrace the hilariously awkward side of dance with our "Most Awkward Dance Moves" website. This project is not just about showcasing dance moves; it's a celebration of the quirky, the clumsy, and the downright funny moments that make us smile.
 
