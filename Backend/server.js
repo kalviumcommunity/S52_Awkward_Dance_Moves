@@ -3,7 +3,7 @@ const app = express();
 const { ConnecttoDB, disconnecttoDB, isConnected } = require("./db");
 const routes = require("./routes")
 
-app.use("/", routes);
+app.use("/dance", routes);
 
 app.listen(3000, () => {
   ConnecttoDB();
