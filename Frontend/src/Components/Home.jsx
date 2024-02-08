@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Twitter from "../assets/Twitter.png";
 import Home1 from "../assets/Home1.png";
 import Profile from "../assets/Profile.png";
-import file from "./file";
+import axios from 'axios';
 
 function Home() {
+  const [dance , setDance] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/dance/getEntites')
+      .then(response => {
+        setDance(response.data); 
+        console.log(response.data); 
+      })
+      .catch(err => console.log(err.message));
+  }, []); 
+
+
+
   return (
     <div className="flex justify-center items-center h-screen w-full text-white">
       <div className="flex justify-center w-10/12 h-full">
@@ -30,11 +43,11 @@ function Home() {
           </div>
 
           <div className="flex flex-col items-center ">
-            {file.map((data, id) => (
+            {dance.map((data, id) => (
               <div
                 className="  flex justify-center min-h-96 items-center border-b border-white w-full"
                 key={id}>
-                <img className=" rounded-md w-4/5" src={data.dance} alt="" />
+                <img className=" rounded-md w-4/5" src={data.dance_gif} alt="" />
               </div>
             ))}
           </div>
