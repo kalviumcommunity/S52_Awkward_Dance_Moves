@@ -4,7 +4,7 @@ import cancel from "../assets/Cancel.svg";
 import axios from "axios";
 import Home from "./Home"; // Import Home component
 
-function Login() {
+function Login2() {
   const [UserName, setName] = useState("");
   const [EmailId, setEmail] = useState("");
   const [Password, setPassword] = useState("");
@@ -39,15 +39,7 @@ function Login() {
             className="flex flex-col justify-center items-center"
           >
             <div className="mt-5 text-left text-2xl">Create an Account</div>
-            <div>
-              <input
-                type="text"
-                placeholder="Username"
-                className="border mt-7 bg-black border-gray-400 w-72 mx-16 rounded-md py-2 px-4 mb-4"
-                value={UserName}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
+            
             <div>
               <input
                 type="email"
@@ -79,4 +71,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Login2;

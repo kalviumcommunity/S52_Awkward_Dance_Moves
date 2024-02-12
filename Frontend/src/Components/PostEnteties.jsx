@@ -2,27 +2,26 @@ import React, { useState } from "react";
 import Twitter from "../assets/Twitter.png";
 import cancel from "../assets/Cancel.svg";
 import axios from "axios";
-import Home from "./Home"; // Import Home component
+import Home from "./Home";
 
-function Login() {
-  const [UserName, setName] = useState("");
-  const [EmailId, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
+function Post() {
+  const [Username, setName] = useState("");
+  const [profile, setProfile] = useState("");
+  const [dance_gif, setGif] = useState("");
+  const [comments, SetComments] = useState("");
   const [loggedIn, setLoggedIn] = useState(false); // State to track login status
 
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/dance/createUser", { UserName, EmailId, Password })
-      .then((res) => {
-        console.log(res);
-        setLoggedIn(true); // Set loggedIn to true on successful login
-      })
+      .post("http://localhost:3000/dance/postEntities", { Username,dance_gif, profile , comments })
+      .then((res) => console.log(res))
       .catch((err) => console.log(err));
+      setLoggedIn(true)
   };
 
-  if (loggedIn) {
-    return <Home login = {loggedIn} />;
+  if(loggedIn){
+    return <Home />
   }
 
   return (
@@ -36,41 +35,50 @@ function Login() {
         <div className="mt-7 text-white mb-4 flex flex-col items-center">
           <form
             onSubmit={submit}
-            className="flex flex-col justify-center items-center"
+            className=" flex flex-col justify-center items-center"
           >
-            <div className="mt-5 text-left text-2xl">Create an Account</div>
+            <div className="mt-5 text-left text-2xl">Create an Post</div>
             <div>
               <input
                 type="text"
                 placeholder="Username"
                 className="border mt-7 bg-black border-gray-400 w-72 mx-16 rounded-md py-2 px-4 mb-4"
-                value={UserName}
+                value={Username}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div>
               <input
-                type="email"
-                placeholder="Email"
+                type="text"
+                placeholder="Profile"
                 className="border mt-7 bg-black border-gray-400 w-72 rounded-md py-2 px-4 mb-4"
-                value={EmailId}
-                onChange={(e) => setEmail(e.target.value)}
+                value={profile}
+                onChange={(e) => setProfile(e.target.value)}
               />
             </div>
             <div>
               <input
-                type="password"
-                placeholder="Password"
+                type="text"
+                placeholder="Gif"
                 className="border mt-7 bg-black border-gray-400 w-72 rounded-md py-2 px-4 mb-4"
-                value={Password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={dance_gif}
+                onChange={(e) => setGif(e.target.value)}
               />
             </div>
-            <button
-              type="submit" // Change to button type submit
-              className="mt-7 mb-7 bg-blue-500 text-white w-72 rounded-md py-2 px-4"
+            <div>
+              <input
+                type="text"
+                placeholder="Comments"
+                className="border mt-7 bg-black border-gray-400 w-72 rounded-md py-2 px-4 mb-4"
+                value={comments}
+                onChange={(e) => SetComments(e.target.value)}
+              />
+            </div>
+            <button 
+              onClick={submit}
+              className="mt-7 mb-7 bg-[rgb(28,155,239)] transition duration-300 hover:bg-[rgb(24,140,216)] text-white w-72 rounded-md py-2 px-4"
             >
-              Login
+              Post
             </button>
           </form>
         </div>
@@ -79,4 +87,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Post;
