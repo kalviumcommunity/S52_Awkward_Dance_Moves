@@ -1,15 +1,20 @@
 const express = require("express");
-const app = express();
-const { ConnecttoDB, disconnecttoDB, isConnected } = require("./db");
+const { ConnecttoDB } = require("./db");
 const routes = require("./routes");
 const cors = require("cors");
+;
 
-app.use(cors())
-app.use(express.json())
+const app = express();
+
+
+app.use(express.json());
+app.use(cors());
+
 
 app.use("/dance", routes);
 
-app.listen(3000, () => {
+const port = 3000 || 3001;
+app.listen(port, () => {
   ConnecttoDB();
-  console.log("this server is running in 3000");
+  console.log("this server is running in", port);
 });
