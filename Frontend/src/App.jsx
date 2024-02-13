@@ -1,19 +1,20 @@
 import LoginHome from "./Components/LoginHome";
 import Home from "./Components/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Login from "./Components/Login";
 import PostEnteties from "./Components/PostEnteties";
+import Update from "./Components/Update";
 import "./App.css";
 function App() {
   return (
     <div className="bg-black w-full h-screen">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginHome />}>
-            <Route path="/Home" element={<Home />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/Post" element={<PostEnteties />} />
-          </Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/post" element={<PostEnteties />} />
+          <Route path="/update/:id" element={<Update />} />
         </Routes>
       </BrowserRouter>
     </div>
