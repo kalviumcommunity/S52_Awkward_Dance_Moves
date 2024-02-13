@@ -1,19 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Twitter from "../assets/Twitter.png";
-import cancel from "../assets/Cancel.svg";
-import axios from "axios";
-import Home from "./Home";
 import { Link } from "react-router-dom";
-function Post() {
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import Home from "./Home";
+function Update() {
+  const { id } = useParams();
   const [Username, setName] = useState("");
   const [profile, setProfile] = useState("");
   const [dance_gif, setGif] = useState("");
-  const [comments, SetComments] = useState("");
+  const [comments, setComments] = useState("");
+  const [dance, setDance] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/dance/getEntites/${id}`)
+      .then((response) => {
+        setDance(response.data);
+        setName(response.data.Username);
+        setProfile(response.data.profile);
+        setGif(response.data.dance_gif);
+        setComments(response.data.comments);
+        console.log(response.data);
+      })
+      .catch((err) => console.log(err.message));
+  }, [id]);
 
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/dance/postEntities", { Username,dance_gif, profile , comments })
+      .put(`http://localhost:3000/dance/updateEntities/${id}`, {
+        Username,
+        dance_gif,
+        profile,
+        comments,
+      })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
@@ -65,19 +86,17 @@ function Post() {
                 placeholder="Comments"
                 className="border mt-7 bg-black border-gray-400 w-72 rounded-md py-2 px-4 mb-4"
                 value={comments}
-                onChange={(e) => SetComments(e.target.value)}
+                onChange={(e) => setComments(e.target.value)}
               />
             </div>
-            
-            <button 
-            
-              onClick={submit}
-              className="mt-7 mb-7 bg-[rgb(28,155,239)] transition duration-300 hover:bg-[rgb(24,140,216)] text-white w-72 rounded-md py-2 px-4"
-            >
-              <Link to="/home">Post</Link>
-             
+            <button onClick={submit}>
+              <Link
+                className="mt-7 mb-7 bg-[rgb(28,155,239)] transition duration-300 hover:bg-[rgb(24,140,216)] text-white w-72 rounded-md py-2 px-4"
+                to="/home"
+              >
+                Post
+              </Link>
             </button>
-              
           </form>
         </div>
       </div>
@@ -85,4 +104,4 @@ function Post() {
   );
 }
 
-export default Post;
+export default Update;

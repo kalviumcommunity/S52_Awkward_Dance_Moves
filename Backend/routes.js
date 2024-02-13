@@ -1,26 +1,55 @@
 const express = require("express");
 const router = express.Router();
-const { dataModel, UserModel } = require('./Data');
+const { dataModel, UserModel } = require("./Data");
 
 router.get("/", (req, res) => {
   res.json({ message: "get all data" });
 });
 
-router.post("/createUser", (req , res) => {
+router.post("/createUser", (req, res) => {
   UserModel.create(req.body)
-  .then(user => res.json(user))
-  .catch(err => res.json(err))
-})
+    .then((user) => res.json(user))
+    .catch((err) => res.json(err));
+});
 
 router.get("/getEntites", (req, res) => {
-    dataModel.find()
+  dataModel
+    .find()
     .then((data) => res.json(data))
     .catch((err) => res.json(err));
 });
-router.post('/postEntities', (req, res) => {
-  dataModel.create(req.body)
-    .then(data => res.json(data))
-    .catch(err => res.status(500).json({ error: err.message }));
+router.delete('/deleteEntites/:id', (req, res) => {
+  const id = req.params.id;
+  dataModel.findByIdAndDelete(id)
+    .then(deletedEntity => res.json(deletedEntity)) // Return the deleted entity
+    .catch(err => res.json(err));
+});
+
+router.get("/getEntites/:id", (req, res) => {
+  const id = req.params.id;
+  dataModel
+    .findById(id) // Remove the curly braces around id
+    .then((data) => res.json(data))
+    .catch((err) => res.json(err));
+});
+router.put("/updateEntities/:id", (req, res) => {
+  const id = req.params.id;
+  dataModel
+    .findByIdAndUpdate({_id:id} , {
+      Username: req.body.Username ,
+       dance_gif: req.body.dance_gif , 
+       profile : req.body.profile,
+       comments: req.body.comments
+    }) // Remove the curly braces around id
+    .then((data) => res.json(data))
+    .catch((err) => res.json(err));
+});
+
+router.post("/postEntities", (req, res) => {
+  dataModel
+    .create(req.body)
+    .then((data) => res.json(data))
+    .catch((err) => res.status(500).json({ errovr: err.message }));
 });
 
 router.get("/ping", (req, res) => {
