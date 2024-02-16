@@ -7,9 +7,16 @@ const DataSchema = new mongoose.Schema({
   Username: String,
 });
 const UserData = new mongoose.Schema({
-    UserName: String,
-    EmailId: String,
-  Password: String,
+    firstName: String,
+    lastName: String,
+    userName: String,
+    email: String,
+    password : String,
+    location:String,
+    profile:String,
+    bio : String
+
+
 });
 
 const UserModel = mongoose.model("users", UserData);

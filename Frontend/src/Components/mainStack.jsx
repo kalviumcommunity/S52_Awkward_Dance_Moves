@@ -2,10 +2,12 @@ import React, { useState, useRef, useEffect } from "react"; // Importing useRef
 import Twitter from "../assets/Twitter.png";
 import Google from "../assets/Google.png";
 import Apple from "../assets/apple.png";
-import Login from "./Login"; // Importing the Login component
+import Login from "./Signup"; // Importing the Login component
 
 function LoginHome() {
   const [loggedIn, setLoggedIn] = useState(false); // State to track login status
+  const [signin, setSignin] = useState(false); // State to track login status
+
   const openLoginModal = () => {
     setLoggedIn(true);
   };
