@@ -3,12 +3,20 @@ import Twitter from "../assets/Twitter.png";
 import cancel from "../assets/Cancel.svg";
 import axios from "axios";
 import Home from "./Home";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+
+
 function Post() {
   const [Username, setName] = useState("");
   const [profile, setProfile] = useState("");
   const [dance_gif, setGif] = useState("");
   const [comments, SetComments] = useState("");
+
+
+  const Navigate = useNavigate();
+
+  
 
   const submit = (e) => {
     e.preventDefault();
@@ -16,7 +24,8 @@ function Post() {
       .post("http://localhost:3000/dance/postEntities", { Username,dance_gif, profile , comments })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-  };
+      Navigate('/home')
+    };
 
   return (
     <div className="flex flex-col min-h-screen justify-center items-center">
@@ -74,7 +83,8 @@ function Post() {
               onClick={submit}
               className="mt-7 mb-7 bg-[rgb(28,155,239)] transition duration-300 hover:bg-[rgb(24,140,216)] text-white w-72 rounded-md py-2 px-4"
             >
-              <Link to="/home">Post</Link>
+              Post
+              {/* <Link to="/home">Post</Link> */}
              
             </button>
               

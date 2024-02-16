@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const { dataModel, UserModel } = require("./Data");
-
+const {validateSignup} = require('./JoiSchema/user')
 router.get("/", (req, res) => {
   res.json({ message: "get all data" });
 });
 
-router.post("/createUser", (req, res) => {
+router.post("/createUser", validateSignup, (req, res) => {
   UserModel.create(req.body)
     .then((user) => res.json(user))
-    .catch((err) => res.json(err));
+    .catch((err) => res.status(400).json({ error: err.message }));
 });
 
 router.get("/getEntites", (req, res) => {

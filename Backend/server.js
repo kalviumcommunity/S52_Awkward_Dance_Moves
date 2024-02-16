@@ -1,8 +1,8 @@
 const express = require("express");
-const { ConnecttoDB } = require("./db");
+const { ConnecttoDB, disconnecttoDB } = require("./db");
 const routes = require("./routes");
 const cors = require("cors");
-;
+const { disconnect } = require("mongoose");
 
 const app = express();
 
