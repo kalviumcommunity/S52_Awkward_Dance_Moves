@@ -3,17 +3,17 @@ import Twitter from "../assets/Twitter.png";
 import Google from "../assets/Google.png";
 import Apple from "../assets/apple.png";
 import Login from "./Signup"; // Importing the Login component
+import { Link, useNavigate } from "react-router-dom";
 
-function LoginHome() {
-  const [loggedIn, setLoggedIn] = useState(false); // State to track login status
-  const [signin, setSignin] = useState(false); // State to track login status
+function LoginHome({ data }) {
 
-  const openLoginModal = () => {
-    setLoggedIn(true);
-  };
-  if (loggedIn) {
-    return <Login />;
-  }
+  // const handlerefresh = () => {
+  //   window.location.reload()
+  // }
+  // useEffect(() => {
+
+  //   handlerefresh()
+  // }, [])
 
   return (
     <div className="flex flex-col h-screen text-white md:flex-row">
@@ -33,17 +33,11 @@ function LoginHome() {
             <h1 className="font-bold text-3xl text-center md:text-3xl">
               Join today.
             </h1>{" "}
-            <button
-              onClick={openLoginModal}
-              className="mt-8 w-64 bg-white rounded-full py-1 px-4 flex items-center justify-center ml-8 border border-white"
-            >
+            <button className="mt-8 w-64 bg-white rounded-full py-1 px-4 flex items-center justify-center ml-8 border border-white">
               <img className="w-6 mr-2" src={Google} alt="Google Logo" />
               <span className="text-black text-xs">Sign in with Google</span>
             </button>
-            <button
-              onClick={openLoginModal}
-              className="mt-3  w-64 bg-white rounded-full py-1 px-4 flex items-center justify-center ml-8 border border-white"
-            >
+            <button className="mt-3  w-64 bg-white rounded-full py-1 px-4 flex items-center justify-center ml-8 border border-white">
               <img className="w-5 mr-2" src={Apple} alt="Apple Logo" />
               <span className="text-black text-xs">Sign in with Apple</span>
             </button>
@@ -52,20 +46,23 @@ function LoginHome() {
               <h1 className="mx-4 text-white">or</h1>
               <hr className="w-1/3 border border-white" />
             </div>
-            <button
-              onClick={openLoginModal}
+            <Link
+              to="/signup"
               className="mt-9 w-64 bg-blue-400 rounded-full py-2 px-4 flex items-center justify-center ml-8"
             >
               <span className="text-white text-xs">Create an Account</span>
-            </button>
+            </Link>
             <h4 className="text-xs font-thin pl-9 w-full mt-2">
               By signing up, you agree to the Terms of Service and Privacy
               Policy, including Cookie Use.
             </h4>
             <h1 className="pl-9 text-xs mt-10">Already have an account?</h1>
-            <button className="mt-5 w-64 bg-black rounded-full py-2 px-4 flex items-center justify-center ml-8 border border-white">
-              <span className="text-white text-xs">Sign in</span>
-            </button>
+            <Link
+              to="/login"
+              className="mt-5 w-64 bg-black rounded-full py-2 px-4 flex items-center justify-center ml-8 border border-white"
+            >
+              <span className="text-white text-xs">Login in</span>
+            </Link>
           </div>
         </div>
       </div>
