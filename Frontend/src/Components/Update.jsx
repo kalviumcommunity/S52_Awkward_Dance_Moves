@@ -12,7 +12,7 @@ function Update({ getUserData }) {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/dance/getEntities/${id}`)
+      .get(`https://api-rxwj.onrender.com/dance/getEntities/${id}`)
       .then((response) => {
         setDance(response.data);
         setGif(response.data.dance_gif);
@@ -23,7 +23,7 @@ function Update({ getUserData }) {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:3000/dance/deleteEntities/${id}`)
+      .delete(`https://api-rxwj.onrender.com/dance/deleteEntities/${id}`)
       .then((res) => {
         getUserData();
 
@@ -35,7 +35,7 @@ function Update({ getUserData }) {
   const submit = (e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:3000/dance/updateEntities/${id}`, {
+      .put(`https://api-rxwj.onrender.com/dance/updateEntities/${id}`, {
         dance_gif,
         comments,
       })
