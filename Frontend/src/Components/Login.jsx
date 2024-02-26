@@ -30,7 +30,7 @@ function Login({ setlogin,setLoader }) {
 
     // Make API call to login endpoint
     axios
-      .post("http://localhost:3000/dance/login", userData)
+      .post("https://api-rxwj.onrender.com/dance/login", userData)
       .then((response) => {
         if (response.status === 201) {
           localStorage.setItem("token", response.data);

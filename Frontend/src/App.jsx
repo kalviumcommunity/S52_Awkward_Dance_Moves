@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .post("http://localhost:3000/dance/getUserDetails", {
+      .post("https://api-rxwj.onrender.com/dance/getUserDetails", {
         token: localStorage.getItem("token") || "",
       })
       .then((res) => {
@@ -41,7 +41,7 @@ function App() {
 
   const getUserData = () => {
     axios
-      .get("http://localhost:3000/dance/getEntities")
+      .get("https://api-rxwj.onrender.com/dance/getEntities")
       .then((response) => {
         setDanceData(response.data);
       })

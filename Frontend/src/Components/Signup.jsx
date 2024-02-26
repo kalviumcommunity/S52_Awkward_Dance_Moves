@@ -33,7 +33,15 @@ function Signup({ setlogin, setLoader }) {
       .min(2, "Too Short!")
       .max(15, "Too Long!")
       .required("Required"),
-    email: Yup.string().email("Invalid email format").required("Required"),
+    email: Yup.string()
+      .email("Invalid email format")
+      .test('valid-email', 'Invalid email format', (value) => {
+        if (!value) return false;
+        const atIndex = value.indexOf('@');
+        const dotIndex = value.lastIndexOf('.');
+        return atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < value.length - 1;
+      })
+      .required("Required"),
     password: Yup.string()
       .min(5, "Too Short!")
       .max(12, "Too Long!")
@@ -44,6 +52,7 @@ function Signup({ setlogin, setLoader }) {
       .max(100, "Too Long!")
       .required("Required"),
   });
+  
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -67,7 +76,7 @@ function Signup({ setlogin, setLoader }) {
       formDataForApi.set("profile", blob, "profile.jpg");
 
       const res = await axios.post(
-        "http://localhost:3000/dance/createUser",
+        "https://api-rxwj.onrender.com/dance/createUser",
         formDataForApi,
         {
           headers: { "Content-Type": "multipart/form-data" },
