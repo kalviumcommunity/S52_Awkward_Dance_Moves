@@ -47,12 +47,16 @@ function Profile({ data, dance, getUserData }) {
                   <div className=" w-full h-10 border flex justify-center items-center border-x-0 border-y-white">
                     <h1 className=" text-2xl">Post</h1>
                   </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 border-white">
+                  <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {userPost.map((post, index) => {
                       return (
-                        <Link to={`/update/${post._id}`}  key={index} className="relative">
+                        <Link
+                          to={`/update/${post._id}`}
+                          key={index}
+                          className="relative"
+                        >
                           <img
-                            className="border-x border-b h-52 md:h-72 w-auto px-3"
+                            className=" border-b border-r h-52 md:h-72 w-auto px-3"
                             src={post.dance_gif}
                             alt=""
                           />
@@ -60,7 +64,6 @@ function Profile({ data, dance, getUserData }) {
                       );
                     })}
                   </div>
-
                 </div>
               </div>
             )}
