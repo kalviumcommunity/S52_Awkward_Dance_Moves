@@ -13,7 +13,7 @@ function Post({ email, getUserData }) {
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/dance/postEntities", {
+      .post("https://api-rxwj.onrender.com/postEntities", {
         email,
         dance_gif,
         comments,
