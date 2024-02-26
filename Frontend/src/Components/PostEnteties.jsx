@@ -13,7 +13,7 @@ function Post({ email, getUserData }) {
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/dance/postEntities", {
+      .post("https://api-rxwj.onrender.com/postEntities", {
         email,
         dance_gif,
         comments,
@@ -26,8 +26,8 @@ function Post({ email, getUserData }) {
   };
 
   return (
-    <div className="flex flex-col min-h-screen justify-center items-center">
-      <div className="bg-black px-5 rounded-lg flex flex-col border border-gray-300">
+    <div className="flex  min-h-screen justify-around items-center">
+      <div className="bg-black px-5 min-w-96 rounded-lg flex flex-col border border-gray-300">
         <div className="flex justify-between items-start">
           <div className="flex w-full mt-4 justify-center items-center">
             <img className="w-12" src={Twitter} alt="Twitter Logo" />
@@ -38,7 +38,10 @@ function Post({ email, getUserData }) {
             onSubmit={submit}
             className=" flex flex-col justify-center items-center"
           >
-            <div className="mt-5 text-left text-2xl">Create an Post</div>
+            <div className="mt-5 mb-5 text-left text-2xl">Create an Post</div>
+            <div>
+              <img src={dance_gif} alt="" />
+            </div>
 
             <div>
               <input
@@ -49,11 +52,11 @@ function Post({ email, getUserData }) {
                 onChange={(e) => setGif(e.target.value)}
               />
             </div>
-            <div>
+            <div className=" w-full">
               <input
                 type="text"
                 placeholder="Comments"
-                className="border mt-7 bg-black border-gray-400 w-72 rounded-md py-2 px-4 mb-4"
+                className="border mt-7 bg-black border-gray-400 w-full rounded-md py-2 px-4 mb-4"
                 value={comments}
                 onChange={(e) => SetComments(e.target.value)}
               />
