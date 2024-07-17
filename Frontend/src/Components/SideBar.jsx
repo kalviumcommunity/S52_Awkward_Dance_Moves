@@ -4,15 +4,17 @@ import Twitter from "../assets/Twitter.png";
 import Home1 from "../assets/Home1.png";
 import ProfileIcon from "../assets/Profile.png";
 import Vector from "../assets/Vector.png";
+import Cookies from 'js-cookie';
 
 function Sidebar() {
   const navigate = useNavigate();
 
   const handleLogOut = () => {
-    localStorage.removeItem("token");
+    Cookies.remove('tokenn');
     window.location.reload();
     navigate("/");
-  };
+};
+
 
   return (
     <div className="sm:flex flex-col hidden sm:block h-full items-start w-2/12 border-gray-400 rounded-l">

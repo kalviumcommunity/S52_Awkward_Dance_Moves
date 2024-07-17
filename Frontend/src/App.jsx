@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
-
+import Cookies from 'js-cookie';
 import PostEnteties from "./Components/PostEnteties";
 import Update from "./Components/Update";
 import Signin from "./Components/Signup";
@@ -20,12 +20,12 @@ function App() {
   const [loader, setLoader] = useState(true);
   const [email, setEmail] = useState("");
   const [users, setUsers] = useState([]);
-
   useEffect(() => {
+    console.log( Cookies.get('tokenn') || "")
     axios
-      .post("https://api-rxwj.onrender.com/dance/getUserDetails", {
-        token: localStorage.getItem("token") || "",
-      })
+    .post("https://api-rxwj.onrender.com/dance/getUserDetails", {
+      token: Cookies.get('tokenn') || "",
+    })  
       .then((res) => {
         setLoader(false);
         setProfileData(res.data);

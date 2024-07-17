@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Twitter from "../assets/Twitter.png";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 function Login({ setlogin,setLoader }) {
   const navigate = useNavigate();
@@ -33,16 +34,14 @@ function Login({ setlogin,setLoader }) {
       .post("https://api-rxwj.onrender.com/dance/login", userData)
       .then((response) => {
         if (response.status === 201) {
-          localStorage.setItem("token", response.data);
-          setlogin(true);
-          setLoader(true)
+            Cookies.set('tokenn', response.data, { expires: 7 }); // Token expires in 7 days
+            setlogin(true);
+            setLoader(true);
         }
-        // Handle successful login (e.g., save token, redirect to dashboard)
         console.log("Login successful");
-
+    
         navigate("/");
-        // console.log(response.data);
-      })
+      })    
       .catch((error) => {
         // Handle login error (e.g., display error message)
         console.error("Login failed:", error);
