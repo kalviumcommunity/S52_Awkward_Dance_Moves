@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import Twitter from "../assets/Twitter.png";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 function Signup({ setlogin, setLoader }) {
   const navigate = useNavigate();
@@ -84,11 +85,11 @@ function Signup({ setlogin, setLoader }) {
       );
 
       if (res.status === 201) {
-        localStorage.setItem("token", res.data);
+        Cookies.set('tokenn', res.data, { expires: 7 }); // Token expires in 7 days
         console.log("Image size:", blob.size);
         console.log(res.data.user);
         setlogin(true);
-        setLoader(true)
+        setLoader(true);
         navigate("/"); // Redirect to home page after successful signup
       }
     } catch (error) {
